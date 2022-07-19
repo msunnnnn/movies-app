@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <form>
     <label>Movie</label>
@@ -14,7 +16,7 @@
     <label>Rating</label>
     <input type="text" id="rating">
     <br>
-    <input type="submit" value="submit">
+    <input type="submit" value="Submit">
 
   </form>
   <br>
@@ -22,18 +24,22 @@
 </body>
 <script src="https://unpkg.com/jquery"></script>
 <script>
-$("form").on("submit", function(evt){
-  evt.preventDefault()
-  let movie = $("#movie").val()
-  let rating = $("#rating").val()
 
+  $("form").on("submit", function (evt) {
+    evt.preventDefault()
+    let movie = $("#movie").val()
+    let rating = $("#rating").val()
 
-  $("div")
-    .append($(`<div class= "new-movie">
-      Movie: ${movie} Rating: ${rating} </div>`))
-})
+    $("#rated-movie")
+      .append($(`<div class="new-movie">
+      Movie: ${movie} Rating: ${rating} <button class= "new-movie-button">Text in the button</button><br></div>`))
+  })
+
+  $('#rated-movie').on('click', '.new-movie-button', function (evt) {
+    $(evt.target).parent().remove();
+  });
+
 
 </script>
+
 </html>
-
-
